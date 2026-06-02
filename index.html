@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>讀書紀錄系統</h2>
+
+科目：<input id="subject"><br><br>
+時間：<input id="time"><br><br>
+
+<button onclick="send()">送出</button>
+
+<h3>讀書紀錄</h3>
+<div id="list"></div>
+<script>
+function send() {
+  fetch("https://script.google.com/macros/s/AKfycbwSjzOYqNe5oE-IzFoLHFwj2gMf3Lx0VQCRt7Z9xJ5LUBy1QKIFthkEe0P7jcbhE_6mBQ/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      subject: document.getElementById("subject").value,
+      time: document.getElementById("time").value
+    })
+  });
+
+  alert("已送出！");
+}
+function loadData() {
+  fetch("https://script.google.com/macros/s/AKfycbwSjzOYqNe5oE-IzFoLHFwj2gMf3Lx0VQCRt7Z9xJ5LUBy1QKIFthkEe0P7jcbhE_6mBQ/exec")
+    .then(res => res.json())
+    .then(data => {
+      let html = "";
+
+      data.forEach(item => {
+        html += `
+          <p>
+            📅 ${item.date} ｜ 📘 ${item.subject} ｜ ⏱ ${item.time}
+          </p>
+        `;
+      });
+
+      document.getElementById("list").innerHTML = html;
+    });
+}
+loadData();
+</script>
+
+</body>
+</html>
