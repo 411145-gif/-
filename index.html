@@ -13,7 +13,7 @@
 <div id="list"></div>
 <script>
 function send() {
-  fetch("https://script.google.com/macros/s/AKfycbwSjzOYqNe5oE-IzFoLHFwj2gMf3Lx0VQCRt7Z9xJ5LUBy1QKIFthkEe0P7jcbhE_6mBQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbz_6YDa6KFEwuBWAvzDdgUwhj7WCEPqzHsvFi6PC1EKxPWn7u6rs8om40YIcCvwr2S8GQ/exec", {
     method: "POST",
     body: JSON.stringify({
       subject: document.getElementById("subject").value,
@@ -24,7 +24,7 @@ function send() {
   alert("已送出！");
 }
 function loadData() {
-  fetch("https://script.google.com/macros/s/AKfycbwSjzOYqNe5oE-IzFoLHFwj2gMf3Lx0VQCRt7Z9xJ5LUBy1QKIFthkEe0P7jcbhE_6mBQ/exec")
+  fetch("https://script.google.com/macros/s/AKfycbz_6YDa6KFEwuBWAvzDdgUwhj7WCEPqzHsvFi6PC1EKxPWn7u6rs8om40YIcCvwr2S8GQ/exec")
     .then(res => res.json())
     .then(data => {
       let html = "";
