@@ -19,9 +19,11 @@ function send() {
       subject: document.getElementById("subject").value,
       time: document.getElementById("time").value
     })
+  })
+  .then(() => {
+    alert("已送出！");
+    loadData(); // ⭐關鍵：更新畫面
   });
-
-  alert("已送出！");
 }
 function loadData() {
   fetch("https://script.google.com/macros/s/AKfycbz_6YDa6KFEwuBWAvzDdgUwhj7WCEPqzHsvFi6PC1EKxPWn7u6rs8om40YIcCvwr2S8GQ/exec")
